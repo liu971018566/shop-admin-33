@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    index
+    <el-button type="primary">主要按钮</el-button>
+    <p>
+      <router-view></router-view>
+    </p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// 请求测试接口，因为这样太麻烦，为了节省我们宝贵的时间，就把它绑定到main.js上
+  // import axios from  "axios";
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  mounted(){
+
+
+    // 请求测试接口
+  //   axios({
+  //     url:"http://api.github.com/users",
+  //     method:"GET",
+  //     params:{
+  //       abs:123
+  //     }
+  //   }).then(res => {
+  //     console.log(res)
+  //   })
+
+
+  this.$axios({
+    url:"https://api.github.com/users",
+    method:"GET",
+  }).then(res=>{
+    console.log(res)
+  })
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
