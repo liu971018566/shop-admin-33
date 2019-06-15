@@ -4,7 +4,7 @@
     <el-row type="flex" justify="space-between">
       <!-- 按钮列表 -->
       <div>
-        <el-button type="warning">新增</el-button>
+        <el-button type="warning" @click="handleAdd">新增</el-button>
         <el-button type="danger"  @click="handleDeleteMore">删除</el-button>
       </div>
 
@@ -218,6 +218,7 @@ export default {
             // 编辑商品按钮事件
             handleEdit(goods){
                 console.log(goods);
+                this.$router.push("/admin/goods-edit/" + goods.id)
             },
 
             //   // 页面加载完成后立即发送请求获取数据
@@ -275,6 +276,12 @@ export default {
                   // 发送请求，赋值searchValue
                   this.getList();
             },
+
+
+            // 新增按钮触发后跳转页面事件
+            handleAdd(){
+              this.$router.push("/admin/goods-add")
+            }
             },
 
            
